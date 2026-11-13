@@ -1,0 +1,79 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model cliente {
+  codigo   Int     @id @default(autoincrement())
+  nome     String? @db.VarChar(200)
+  cpf      String? @db.VarChar(45)
+  endereco String? @db.VarChar(200)
+  cidade   String? @db.VarChar(45)
+  estado   String? @db.VarChar(2)
+  email    String? @db.VarChar(100)
+  telefone String? @db.VarChar(45)
+
+  vendas venda[]
+
+  @@map("cliente")
+}
+
+model produto {
+  codigo     Int     @id @default(autoincrement())
+  descricao  String? @db.VarChar(100)
+  quantidade Float?  @db.Float
+  preco      Float?  @db.Float
+
+  itensVenda itensvenda[]
+
+  @@map("produto")
+}
+
+model vendedor {
+  codigo Int     @id @default(autoincrement())
+  nome   String? @db.VarChar(100)
+  login  String? @db.VarChar(45)
+  senha  String? @db.VarChar(50)
+
+  vendas venda[]
+
+  @@map("vendedor")
+}
+
+model venda {
+  codigo      Int       @id @default(autoincrement())
+  data        DateTime? @db.Date
+  total       Float?    @db.Float
+  codCliente  Int
+  codVendedor Int
+
+  cliente cliente @relation(fields: [codCliente], references: [codigo], onDelete: Restrict, onUpdate: Restrict, map: "fk_venda_cliente")
+
+  vendedor vendedor @relation(fields: [codVendedor], references: [codigo], onDelete: Restrict, onUpdate: Restrict, map: "fk_venda_vendedor1")
+
+  itensVenda itensvenda[]
+
+  @@index([codCliente], map: "fk_venda_cliente_idx")
+  @@index([codVendedor], map: "fk_venda_vendedor1_idx")
+  @@map("venda")
+}
+
+model itensvenda {
+  codVenda   Int
+  codProduto Int
+  quantidade Float? @db.Float
+  subtotal   Float? @db.Float
+
+  venda venda @relation(fields: [codVenda], references: [codigo], onDelete: Restrict, onUpdate: Restrict, map: "fk_venda_has_produto_venda1")
+
+  produto produto @relation(fields: [codProduto], references: [codigo], onDelete: Restrict, onUpdate: Restrict, map: "fk_venda_has_produto_produto1")
+
+  @@id([codVenda, codProduto])
+  @@index([codProduto], map: "fk_venda_has_produto_produto1_idx")
+  @@index([codVenda], map: "fk_venda_has_produto_venda1_idx")
+  @@map("itensvenda")
+}
