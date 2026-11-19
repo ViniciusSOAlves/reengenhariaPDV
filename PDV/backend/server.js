@@ -73,10 +73,9 @@ app.post('/createProduto', async (req, res) => {
     }
 });
 
-app.post('/createVendedor', async (req, res) =>{
-    const {nome, login, senha} = req.body;
+app.post('/createVendedor', async (req, res) => {
+    const { nome, login, senha } = req.body;
 
-    
     try {
         const insert = await prisma.vendedor.create({
             data: {
@@ -91,6 +90,109 @@ app.post('/createVendedor', async (req, res) =>{
         res.status(400).json({ message: 'Erro no cadastro!' });
     }
 });
+app.post('/realizarVenda', async (req, res) => {
+    const { data, codCliente, codVendedor, codProduto, quantidade } = req.body;
+    const controleEstoque = [];
+    var somaTotal = 0;
+
+    try {
+
+        for (let i = 0; i < codProduto.length; i++) {
+
+            const busca = await prisma.produto.findUnique({
+                where: {
+                    id: codProduto[i]
+                }
+            });
+
+            if (!busca) {
+                return res.status(404).json({
+                    erro: 'Produto não encontrado.',
+                    codProduto: codProduto[i]
+                });
+            }
+
+            if (busca.quantidade < quantidade[i]) {
+                controleEstoque.push(busca.descricao);
+            }
+        }
+
+        if (controleEstoque.length > 0) {
+            return res.status(400).json({
+                erro: 'Quantidade maior que estoque.',
+                controleEstoque
+            });
+        }
+
+        const create = await prisma.venda.create({
+            data: {
+                data,
+                total: 0,
+                codCliente,
+                codVendedor
+            }
+        });
+
+        const id = create.codigo;
+
+        for (let i = 0; i < codProduto.length; i++) {
+            const produtoAtual = codProduto[i];
+            const qtdAtual = quantidade[i];
+
+            const busca = await prisma.produto.findUnique({
+                where: {
+                    id: produtoAtual
+                }
+            });
+
+            if (busca) {
+                const createvenda = await prisma.itensvenda.create({
+                    data: {
+                        codVenda: id,
+                        codProduto: busca.id,
+                        quantidade: qtdAtual,
+                        subtotal: busca.preco * qtdAtual
+                    }
+                });
+
+                const updateProduto = await prisma.produto.update({
+                    where: {
+                        id: busca.id
+                    },
+                    data: {
+                        quantidade: {
+                            decrement: qtdAtual
+                        }
+                    }
+                });
+
+                somaTotal += busca.preco * qtdAtual;
+            }
+        }
+
+        const updateVenda = await prisma.venda.update({
+            where: {
+                codigo: id
+            },
+            data: {
+                total: somaTotal
+            }
+        });
+
+        return res.status(201).json({
+            mensagem: 'Venda realizada com sucesso.',
+            venda: updateVenda
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        return res.status(500).json({
+            erro: 'Erro ao realizar venda.'
+        });
+    }
+});
+
 
 
 
