@@ -1,0 +1,282 @@
+.venda-pagina {
+  min-height: 100vh;
+  padding: 30px 5%;
+  background: #f3f6f2;
+  color: #25332a;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.venda-cabecalho {
+  max-width: 1280px;
+  margin: 0 auto 24px;
+}
+
+.venda-voltar {
+  margin: 0 0 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #34734d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.venda-sobretitulo {
+  margin: 0 0 7px;
+  color: #43845d;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.venda-cabecalho h1 {
+  margin: 0;
+  color: #25332a;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.venda-descricao {
+  margin: 8px 0 0;
+  color: #69766d;
+  font-size: 15px;
+}
+
+.venda-mensagem {
+  max-width: 1280px;
+  margin: 0 auto 16px;
+  padding: 13px 16px;
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+.venda-erro {
+  border: 1px solid #f0c6c3;
+  background: #fff2f1;
+  color: #8a2e28;
+}
+
+.venda-sucesso {
+  border: 1px solid #c9e1ce;
+  background: #edf7ef;
+  color: #28613b;
+}
+
+.venda-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  align-items: start;
+  gap: 18px;
+}
+
+.venda-cartao {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #e0e8e1;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(32, 67, 45, 0.05);
+}
+
+.venda-selecoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.venda-selecoes label,
+.venda-adicionar label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #4a5b4f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.venda-selecoes select,
+.venda-adicionar select,
+.venda-adicionar input {
+  width: 100%;
+  min-height: 40px;
+  box-sizing: border-box;
+  padding: 9px 10px;
+  border: 1px solid #ccd8ce;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #25332a;
+  font: inherit;
+  font-size: 14px;
+}
+
+.venda-selecoes select:focus,
+.venda-adicionar select:focus,
+.venda-adicionar input:focus {
+  border-color: #43845d;
+  outline: 2px solid rgba(67, 132, 93, 0.15);
+}
+
+.venda-adicionar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 140px auto;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.venda-botao-adicionar,
+.venda-botao-finalizar {
+  min-height: 40px;
+  padding: 10px 15px;
+  border: 1px solid #246b45;
+  border-radius: 6px;
+  background: #246b45;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.venda-botao-adicionar:hover,
+.venda-botao-finalizar:hover:not(:disabled) {
+  background: #1d5839;
+}
+
+.venda-tabela-conteiner {
+  overflow-x: auto;
+}
+
+.venda-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.venda-tabela th,
+.venda-tabela td {
+  padding: 12px 9px;
+  border-bottom: 1px solid #e6ece7;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.venda-tabela th {
+  background: #f5f8f5;
+  color: #506054;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.venda-tabela td {
+  color: #39483e;
+}
+
+.venda-tabela-vazia {
+  padding: 24px !important;
+  color: #718077 !important;
+  text-align: center !important;
+}
+
+.venda-botao-remover {
+  padding: 6px 9px;
+  border: 1px solid #edcfcc;
+  border-radius: 5px;
+  background: #fff5f4;
+  color: #8a3b34;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.venda-resumo {
+  position: sticky;
+  top: 20px;
+}
+
+.venda-resumo-legenda {
+  margin: 0 0 5px;
+  color: #718077;
+  font-size: 12px;
+}
+
+.venda-data {
+  color: #2c3d32;
+  font-size: 16px;
+}
+
+.venda-resumo-linha {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding: 14px 0;
+  border-top: 1px solid #e6ece7;
+  color: #59695e;
+  font-size: 14px;
+}
+
+.venda-total {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+  border-top: 1px solid #e6ece7;
+  color: #506054;
+  font-size: 14px;
+}
+
+.venda-total strong {
+  color: #246b45;
+  font-size: 25px;
+}
+
+.venda-botao-finalizar {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.venda-botao-finalizar:disabled {
+  border-color: #a9b8ad;
+  background: #a9b8ad;
+  cursor: not-allowed;
+}
+
+.venda-estado {
+  margin: 0;
+  color: #718077;
+  font-size: 14px;
+}
+
+@media (max-width: 950px) {
+  .venda-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .venda-resumo {
+    position: static;
+  }
+}
+
+@media (max-width: 650px) {
+  .venda-pagina {
+    padding: 22px 16px;
+  }
+
+  .venda-cabecalho h1 {
+    font-size: 25px;
+  }
+
+  .venda-cartao {
+    padding: 18px 14px;
+  }
+
+  .venda-selecoes {
+    grid-template-columns: 1fr;
+  }
+
+  .venda-adicionar {
+    grid-template-columns: 1fr;
+  }
+}

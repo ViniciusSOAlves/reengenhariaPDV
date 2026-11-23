@@ -1,0 +1,215 @@
+.pdv-pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f3f6f2;
+  color: #25332a;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.pdv-cabecalho {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  background: #246b45;
+  color: #ffffff;
+}
+
+.pdv-marca {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pdv-status {
+  font-size: 14px;
+  color: #e2f0e7;
+}
+
+.pdv-conteudo {
+  width: min(760px, calc(100% - 32px));
+  margin: 56px auto;
+  flex: 1;
+}
+
+.pdv-painel {
+  padding: 36px;
+  border: 1px solid #e0e8e1;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(32, 67, 45, 0.07);
+}
+
+.pdv-titulo {
+  margin-bottom: 28px;
+}
+
+.pdv-sobretitulo {
+  margin: 0 0 8px;
+  color: #43845d;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.pdv-painel h1 {
+  margin: 0;
+  color: #25332a;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.pdv-subtitulo {
+  margin: 9px 0 0;
+  color: #69766d;
+  font-size: 15px;
+}
+
+.pdv-opcoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pdv-opcao {
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #dce7dd;
+  border-radius: 9px;
+  background: #ffffff;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.pdv-opcao:hover {
+  border-color: #43845d;
+  background: #f7fbf7;
+}
+
+.pdv-opcao-texto {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pdv-opcao-texto strong {
+  color: #2c3d32;
+  font-size: 15px;
+}
+
+.pdv-opcao-texto small {
+  color: #718077;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.pdv-opcao-seta {
+  color: #43845d;
+  font-size: 27px;
+}
+
+.pdv-voltar {
+  margin-bottom: 25px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #34734d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pdv-aviso {
+  margin-top: 28px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f0f6f1;
+  color: #526b59;
+  font-size: 14px;
+}
+
+.pdv-rodape {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 7%;
+  border-top: 1px solid #e0e8e1;
+  color: #718077;
+  font-size: 12px;
+}
+
+.pdv-pagina .pdv-voltar,
+.clientes-pagina .clientes-voltar,
+.produtos-pagina .produtos-voltar,
+.vendedores-pagina .vendedores-voltar,
+.venda-pagina .venda-voltar {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 22px;
+  padding: 10px 16px;
+  border: 1px solid #246b45;
+  border-radius: 7px;
+  background: #246b45;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.pdv-pagina .pdv-voltar:hover,
+.clientes-pagina .clientes-voltar:hover,
+.produtos-pagina .produtos-voltar:hover,
+.vendedores-pagina .vendedores-voltar:hover,
+.venda-pagina .venda-voltar:hover {
+  border-color: #1d5839;
+  background: #1d5839;
+}
+
+.pdv-pagina .pdv-voltar:focus-visible,
+.clientes-pagina .clientes-voltar:focus-visible,
+.produtos-pagina .produtos-voltar:focus-visible,
+.vendedores-pagina .vendedores-voltar:focus-visible,
+.venda-pagina .venda-voltar:focus-visible {
+  outline: 3px solid rgba(67, 132, 93, 0.3);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .pdv-cabecalho {
+    padding: 0 18px;
+  }
+
+  .pdv-status {
+    font-size: 12px;
+  }
+
+  .pdv-conteudo {
+    margin: 28px auto;
+  }
+
+  .pdv-painel {
+    padding: 24px 18px;
+  }
+
+  .pdv-painel h1 {
+    font-size: 25px;
+  }
+
+  .pdv-opcoes {
+    grid-template-columns: 1fr;
+  }
+
+  .pdv-rodape {
+    gap: 12px;
+    padding: 16px 18px;
+  }
+}
