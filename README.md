@@ -1,6 +1,6 @@
 # Reengenharia PDV
 
-Sistema de ponto de venda refeito com **React**, **Node.js**, **Express**, **Prisma** e **MySQL/MariaDB**. A aplicação mantém as funções principais do sistema original em Java: manutenção de clientes, produtos e vendedores, além da realização de vendas com baixa de estoque.
+Sistema de ponto de venda refeito com **React**, **Node.js**, **Express**, **Prisma** e **MySQL**. A aplicação mantém as funções principais do sistema original em Java: manutenção de clientes, produtos e vendedores, além da realização de vendas com baixa de estoque.
 
 ## Funcionalidades
 
