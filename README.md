@@ -17,7 +17,7 @@ Sistema de ponto de venda refeito com **React**, **Node.js**, **Express**, **Pri
 - **Frontend:** React e Vite
 - **Backend:** Node.js e Express
 - **ORM:** Prisma 7
-- **Banco de dados:** MySQL ou MariaDB
+- **Banco de dados:** MySQL
 - **Adaptador do banco:** `@prisma/adapter-mariadb`
 
 ## Estrutura do projeto
@@ -50,12 +50,12 @@ PDV/
 ## Requisitos
 
 - Node.js e npm instalados.
-- MySQL ou MariaDB instalado e em execução.
+- MySQL instalado e em execução.
 - Um banco de dados local para o PDV.
 
 ## Configuração do banco de dados
 
-1. Crie um banco de dados chamado `bd_pdv` no MySQL ou MariaDB.
+1. Crie um banco de dados chamado `bd_pdv` no MySQL.
 2. Importe o arquivo `bd_pdv.sql` para esse banco usando uma ferramenta como MySQL Workbench ou phpMyAdmin.
 
 > **Atenção:** o arquivo `bd_pdv.sql` contém comandos para excluir e recriar as tabelas. Importe-o somente em um banco vazio ou quando puder perder os dados existentes.
@@ -66,7 +66,7 @@ PDV/
 DATABASE_URL="mysql://USUARIO:SENHA@localhost:3306/bd_pdv"
 ```
 
-Substitua `USUARIO` e `SENHA` pelos dados do seu MySQL ou MariaDB. Se a senha tiver caracteres especiais, talvez seja necessário codificá-los para uso na URL.
+Substitua `USUARIO` e `SENHA` pelos dados do seu MySQL. Se a senha tiver caracteres especiais, talvez seja necessário codificá-los para uso na URL.
 
 Não compartilhe nem envie o arquivo `.env`, pois ele contém as credenciais do banco.
 
@@ -180,7 +180,7 @@ Confirme se `server.js` termina com `app.listen(...)` e se o bloco está fora da
 
 ### A API retorna erro ao consultar registros
 
-Confira se o MySQL/MariaDB está ligado, se o banco `bd_pdv` existe e se a URL em `backend/.env` está correta.
+Confira se o MySQL está ligado, se o banco `bd_pdv` existe e se a URL em `backend/.env` está correta.
 
 ### A exclusão de um registro é recusada
 
