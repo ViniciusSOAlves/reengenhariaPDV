@@ -185,8 +185,3 @@ Confira se o MySQL/MariaDB está ligado, se o banco `bd_pdv` existe e se a URL e
 ### A exclusão de um registro é recusada
 
 Clientes e vendedores vinculados a vendas e produtos vinculados a itens de venda não podem ser excluídos. Essa restrição é aplicada pelas chaves estrangeiras do banco.
-
-## Limitações atuais
-
-- A tela principal não implementa autenticação de usuários.
-- A senha do vendedor é apenas cadastral nesta versão. O schema atual armazena a senha sem hash; não use senhas reais ou reutilizadas.
